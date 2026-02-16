@@ -228,6 +228,7 @@ export default function RegisterPage() {
                     <p style={{
                         fontSize: "2rem",
                         fontWeight: "700",
+                        marginBottom: ".5rem",
                     }}>Sign up</p>
                     <div className="form">
                         <div className="input-group">
