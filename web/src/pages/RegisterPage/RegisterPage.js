@@ -4,6 +4,8 @@ import AuthRegisterFormContainer from "../../components/AuthRegisterFormContaine
 
 
 export default function RegisterPage() {
+    
+    // useStates
     const [errorMsgs, setErrorMsgs] = useState({
         username: "",
         email: "",
@@ -25,11 +27,18 @@ export default function RegisterPage() {
         confirmPasswordIsValid: false,
     });
 
+
+
+
+    //useRefs
     const usernameField = useRef(null);
     const emailField = useRef(null);
     const passwordField = useRef(null);
     const confirmPasswordField = useRef(null);
 
+
+
+    //useEffects
     useEffect(() => {
         
         if (fieldTouchTracker.usernameIsTouched &&
@@ -86,6 +95,10 @@ export default function RegisterPage() {
 
     }, [fieldTouchTracker])
 
+
+
+
+    //helper functions
     function onUsernameInput() {
         if (usernameField.current.value.length < 3 || usernameField.current.value.length > 20) {
             setErrorMsgs(prev => ({
@@ -205,6 +218,8 @@ export default function RegisterPage() {
             }))
         }
     }
+
+    
 
     return (
         <div className="register-page">
