@@ -158,15 +158,6 @@ export default function RegisterPage() {
                 ...prev,
                 passwordIsValid: false,
             }))
-        } else if (passwordField.current.value !== confirmPasswordField.current.value) {
-            setErrorMsgs(prev => ({
-                ...prev,
-                confirmPassword: "Passwords do not match.",
-            }))
-            setFieldsValidationTracker(prev => ({
-                ...prev,
-                confirmPasswordIsValid: false,
-            }))
         } else {
             setErrorMsgs(prev => ({
                 ...prev,
@@ -176,14 +167,24 @@ export default function RegisterPage() {
                 ...prev,
                 passwordIsValid: true,
             }))
-            setFieldsValidationTracker(prev => ({
-                ...prev,
-                confirmPasswordIsValid: true,
-            }))
         }
     }
 
     function onConfirmPasswordInput() {
+        if (confirmPasswordField.current.value=="") return;
+
+        if (passwordField.current.value=="") {
+            setErrorMsgs(prev => ({
+                ...prev,
+                confirmPassword: "Please set a password first.",
+            }))
+            setFieldsValidationTracker(prev => ({
+                ...prev,
+                confirmPasswordIsValid: false,
+            }))
+            return;
+        }
+
         if (confirmPasswordField.current.value !== passwordField.current.value) {
             setErrorMsgs(prev => ({
                 ...prev,
@@ -263,6 +264,7 @@ export default function RegisterPage() {
                                 onChange={onPasswordInput}
                                 onBlur={() => {
                                     setFieldTouchTracker(prev => ({...prev, passwordIsTouched: true}))
+                                    onConfirmPasswordInput();                                    
                                 }}
                             />
                             <p className="error-message">{errorMsgs.password}</p>
