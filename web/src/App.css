@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+p {
+  margin: 0;
+  font-size: 0.875rem;
+}

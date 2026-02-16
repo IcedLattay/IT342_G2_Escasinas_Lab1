@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import "@fontsource/dm-sans";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/500.css";
+import "@fontsource/dm-sans/700.css";
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import ProtectedRoute from './pages/AuthManagement/ProtectedRoute';
+import PublicRoute from './pages/AuthManagement/PublicRoute';
+import { BrowserRouter as Router, Routes, Route, Navigate, data } from "react-router-dom";
+import { AuthProvider } from './pages/AuthManagement/AuthContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <Routes>
+
+          <Route path="*" element={<Navigate to="/login" />} />
+
+          <Route path="/login" element={
+            <PublicRoute><LoginPage /></PublicRoute>
+          } />
+
+          <Route path="/register" element={
+            <PublicRoute><RegisterPage /></PublicRoute>
+          } />
+          
+          <Route path="/dashboard" element={
+            <ProtectedRoute><DashboardPage /></ProtectedRoute>
+          } />
+
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
