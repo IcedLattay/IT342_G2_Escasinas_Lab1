@@ -1,0 +1,77 @@
+
+
+.register-page {
+    background-color: #F7FAEB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+        .register-page .container-content {
+            /* border: 1px solid black; */
+            display: flex;
+            flex-direction: column;
+        }
+
+
+            .register-page .container-content .form {
+                /* border: 1px solid black; */
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+                .register-page .container-content .form .input-group {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                    .register-page .container-content .form .input-group input,
+                    .register-page .container-content .form button {
+                        box-sizing: border-box;
+                        padding: .75rem;
+                        outline: none;
+                        border: none;
+                        border-radius: 0.5rem;
+                    }
+
+                    .register-page .container-content .form .input-group input {
+                        background-color: #EDEDED;
+                        transition: box-shadow 0.1s ease-in-out;
+                    }
+
+                    .register-page .container-content .form .input-group input::placeholder {
+                        color: #818181;
+                    }
+
+                    .register-page .container-content .form .input-group input:hover,
+                    .register-page .container-content .form .input-group input:focus {
+                        box-shadow: inset 0 0 0 1px #424242;
+                    }
+
+                    .register-page .container-content .form button {
+                        cursor: pointer;
+                        background-color: rgba(85, 90, 60, 1);
+                        font-weight: 700;
+                        color: white;
+                        transition: opacity 0.1s ease-in-out;
+                    }
+
+                    .register-page .container-content .form button:active {
+                        opacity: .7;
+                    }
+
+                    .register-page .container-content .form button:disabled {
+                        opacity: .4;
+                        color: rgb(255, 255, 255, 0.7);
+                    }
+
+                        .register-page .container-content .form .input-group .error-message {
+                            margin-top: .25rem;
+                            color: #D32F2F;
+                            font-size: 0.75rem;
+                            line-height: 1rem;
+                        }
+
+                    
