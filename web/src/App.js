@@ -6,10 +6,12 @@ import "@fontsource/dm-sans/700.css";
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ProtectedRoute from './pages/AuthManagement/ProtectedRoute';
 import PublicRoute from './pages/AuthManagement/PublicRoute';
 import { BrowserRouter as Router, Routes, Route, Navigate, data } from "react-router-dom";
 import { AuthProvider } from './pages/AuthManagement/AuthContext';
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
@@ -27,9 +29,16 @@ function App() {
             <PublicRoute><RegisterPage /></PublicRoute>
           } />
           
-          <Route path="/dashboard" element={
-            <ProtectedRoute><DashboardPage /></ProtectedRoute>
-          } />
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={
+              <ProtectedRoute><DashboardPage /></ProtectedRoute>
+            } />
+
+            <Route path="/profile" element={
+              <ProtectedRoute><ProfilePage /></ProtectedRoute>
+            } />
+          </Route>
+          
 
         </Routes>
       </Router>

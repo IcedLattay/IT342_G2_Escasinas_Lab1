@@ -1,0 +1,25 @@
+
+
+.profile-page {
+    /* border: 1px solid black; */
+    display: flex;
+    width: 100%;
+    padding: 0 2rem; 
+    flex-shrink: 1;
+    margin-bottom: 5rem;
+}
+
+    .profile-page .profile-content {
+        margin-top: 6rem;
+        padding: 1rem 2rem 2rem 2rem;
+        box-sizing: border-box;
+        height: fit-content;
+        border-radius: 1rem;
+        box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.1);
+        /* border: 1px solid rgb(209, 36, 36); */
+        background-color: white;
+        flex: 0 1 100%;
+        min-width: 0;
+    }
+            
+
