@@ -1,0 +1,28 @@
+
+
+.dashboard-page {
+    /* border: 1px solid black; */
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    padding: 0 2rem; 
+    flex-shrink: 1;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+    .dashboard-page .dashboard-content {
+        /* border: 1px solid rgb(209, 36, 36); */
+        flex: 0 1 60rem;
+        min-width: 0;
+    }
+
+        .dashboard-page .dashboard-content .dashboard-images {
+            /* border: 1px solid black; */
+            margin-top: 10rem;
+            display: flex;
+            gap: 1.5rem;
+            height: 20rem;
+        }
+            
+
